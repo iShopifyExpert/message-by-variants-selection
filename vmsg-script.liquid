@@ -1,0 +1,56 @@
+<script>
+  jQuery(function($) {
+    var location = $('.block-swatch-list.v{{settings.location_option | handle}} .block-swatch .block-swatch__radio:input[type=radio]:checked').val();
+    if (location === '{{settings.location_value1}}') {
+      $('#location-msg').html('{{settings.location_message1}}');
+    } else if (location === '{{settings.location_value2}}') {
+      $('#location-msg').html('{{settings.location_message2}}');
+    }
+    $('.block-swatch-list.vlocation .block-swatch').click(function(e) {
+      var location = $(this).find('.block-swatch__radio:input[type=radio]:checked').val();
+      if (location === '{{settings.location_value1}}') {
+        $('#location-msg').html('{{settings.location_message1}}');
+      } else if (location === '{{settings.location_value2}}') {
+        $('#location-msg').html('{{settings.location_message2}}');
+      }
+    });
+  });
+</script>
+
+{%comment%}
+  {
+    "name": "Location Message",
+    "settings": [
+      {
+        "type": "text",
+        "id": "location_option",
+        "label": "Location Option Title",
+        "default": "Location"
+      },
+      {
+        "type": "text",
+        "id": "location_value1",
+        "label": "Location Value 1",
+        "default": "China"
+      },
+      {
+        "type": "textarea",
+        "id": "location_message1",
+        "label": "Location Message 1",
+        "default": "Delivery Time From China is 15 - 25 days"
+      },
+      {
+        "type": "text",
+        "id": "location_value2",
+        "label": "Location Value 2",
+        "default": "Schweiz"
+      },
+      {
+        "type": "textarea",
+        "id": "location_message2",
+        "label": "Location Message 2",
+        "default": "Delivery Time From China is 15 - 25 days"
+      }
+    ]
+  }
+{%endcomment%}
